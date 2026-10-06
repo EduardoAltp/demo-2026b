@@ -14,6 +14,8 @@
   <body>
     <h1>Mi horóscopo</h1>
     <form action="/recibe-formulario" method="post">
+      @csrf 
+      
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre:</label>
         <input
