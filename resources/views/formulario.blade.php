@@ -13,7 +13,7 @@
   </head>
   <body>
     <h1>Mi horóscopo</h1>
-    <form action="/recibe-formulario" method="post">
+    <form action="{{ route('informacion-personal.store') }}" method="post">
       @csrf 
       
       <div class="mb-3">

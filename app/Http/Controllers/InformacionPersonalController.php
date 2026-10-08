@@ -39,7 +39,7 @@ class InformacionPersonalController extends Controller
     $inforPersonal->fecha_nacimiento = $request->fecha_nacimiento;
     $inforPersonal->save();
 
-    return redirect('/horoscopos');
+    return redirect()->route('informacion-personal.index');
     }
 
     /**
@@ -47,7 +47,7 @@ class InformacionPersonalController extends Controller
      */
     public function show(InformacionPersonal $informacionPersonal)
     {
-        //
+        return view('detalle', compact('informacionPersonal'));
     }
 
     /**
@@ -55,7 +55,7 @@ class InformacionPersonalController extends Controller
      */
     public function edit(InformacionPersonal $informacionPersonal)
     {
-        //
+        return view('editar', compact('informacionPersonal'));
     }
 
     /**

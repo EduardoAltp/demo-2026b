@@ -13,7 +13,9 @@
 </head>
 <body>
     <h1>Registros recibidos</h1>
+    <a href="{{ route('informacion-personal.create') }}" class="btn btn-primary mb-3">Agregar nuevo registro</a>
     <thead>
+        
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -25,6 +27,9 @@
 
         @foreach ($informacionPersonal as $renglon)
             <tr>
+                <a href="{{ route('informacion-personal.show', $renglon->id) }}">
+                </a>
+                    <td>{{ $renglon->id }}</td>
                 <td>{{ $renglon->correo }}</td>
                 <td>{{ $renglon->nombre }}</td>
                 <td>{{ $renglon->fecha_nacimiento }}</td>
