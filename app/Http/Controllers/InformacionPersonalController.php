@@ -14,7 +14,7 @@ class InformacionPersonalController extends Controller
     {
         $informacionPersonal = InformacionPersonal::all();
 
-        dd($informacionPersonal);
+        ($informacionPersonal);
 
         return view('registros') ->with(['informacionPersonal' => $informacionPersonal,
          ]);

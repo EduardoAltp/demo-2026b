@@ -12,29 +12,37 @@
     />
 </head>
 <body>
-    <h1>Registros recibidos</h1>
+ <h1>Registros recibidos</h1>
     <a href="{{ route('informacion-personal.create') }}" class="btn btn-primary mb-3">Agregar nuevo registro</a>
-    <thead>
-        
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Fecha de Nacimiento</th>
-        </tr>
-    </thead>
-    <tbody>
 
-        @foreach ($informacionPersonal as $renglon)
+    <table class="table table-striped table-bordered">
+        <thead>
             <tr>
-                <a href="{{ route('informacion-personal.show', $renglon->id) }}">
-                </a>
-                    <td>{{ $renglon->id }}</td>
-                <td>{{ $renglon->correo }}</td>
-                <td>{{ $renglon->nombre }}</td>
-                <td>{{ $renglon->fecha_nacimiento }}</td>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Acciones</th>
             </tr>
-        @endforeach
-    </tbody>
+        </thead>
+        <tbody>
+            @forelse ($informacionPersonal as $renglon)
+                <tr>
+                    <td>{{ $renglon->id }}</td>
+                    <td>{{ $renglon->nombre }}</td>
+                    <td>{{ $renglon->correo }}</td>
+                    <td>{{ $renglon->fecha_nacimiento }}</td>
+                    <td>
+                        <a href="{{ route('informacion-personal.show', $renglon->id) }}" class="btn btn-sm btn-info">Ver</a>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5" class="text-center">No hay registros todavía.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+
 </body>
 </html>
